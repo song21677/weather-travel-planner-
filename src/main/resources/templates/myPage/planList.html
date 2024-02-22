@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+  
+     <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/mainPage.css}" />
+
+	<style>
+		/* Include CSS Normalize */
+
+:root {
+  --primary-color: #008cba;
+  --gray-color: #ddd;
+  --medium-up: 600px;
+  --large-up: 1000px;
+  --global-radius: 4px;
+}
+
+body,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+table,
+td,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+}
+
+main {
+  padding: 2em;
+  float: left;
+  width: 100%;
+}
+
+a {
+  color: #222;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #222;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* BASIC TABLE STYLING */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em;
+}
+
+table thead {
+  border-bottom: 3px solid var(--primary-color);
+}
+
+table th {
+  padding: 0.35em 0 0.35em;
+  font-weight: 400;
+  text-align: left;
+  font-family: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.25em;
+}
+
+table tbody {
+  border-bottom: 3px solid var(--primary-color);
+}
+
+table tbody tr {
+  border-bottom: 2px solid #ddd;
+}
+
+table tbody td {
+  padding: 0.75em 0;
+}
+
+table tbody td a {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 0.5em 0 0;
+}
+
+table tbody td a:hover,
+table tbody td a:active,
+table tbody td a:focus {
+  color: darken(var(--primary-color), 10%);
+  border: none;
+}
+
+table tfoot td {
+  padding: 0.35em 0 0.35em;
+  text-align: left;
+  font-family: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.25em;
+}
+
+@media screen and (min-width: var(--large-up)) {
+  table {
+    width: 100%;
+  }
+
+  table thead {
+    border-bottom: 3px solid var(--primary-color);
+  }
+
+  table tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+/* RWD MIXIN BELOW */
+@media screen and (max-width: var(--medium-up)) {
+  table tbody {
+    border: none;
+  }
+
+  table tbody,
+  th,
+  td,
+  tr,
+  tfoot {
+    display: block;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tr {
+    float: left;
+    width: 100%;
+    margin: 0 0 1em;
+    border: 1px solid var(--gray-color);
+    box-shadow: 0px 2px 5px 0px var(--gray-color);
+    border-radius: var(--global-radius);
+    border-top: 5px solid var(--primary-color);
+  }
+
+  table tr td {
+    padding: 0.5em 0.5em 0.5em 50%;
+    float: left;
+    width: 100%;
+  }
+
+  table tr td:before {
+    width: 100%;
+    display: block;
+    float: left;
+    padding: 0.5em 0.5em 0.5em 0;
+    clear: both;
+    margin: -0.5em 0 0 -100%;
+    font-family: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 1.125em;
+  }
+
+  table tr:nth-of-type(even) td:before {
+    content: '';
+  }
+}
+
+@media screen and (min-width: var(--medium-up)) {
+  table {
+    display: table;
+    border: none;
+  }
+
+  table tbody {
+    border-bottom: 3px solid var(--primary-color);
+  }
+
+  table th,
+  table td {
+    display: table-cell;
+  }
+
+  table tr {
+    display: table-row;
+    border: none;
+    border-bottom: 1px solid #eee;
+    float: none;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  table tr td {
+    padding: 0.75em 0 0.75em 0.25em;
+    float: none;
+    width: auto;
+  }
+
+  table tr td:before {
+    padding: 0 !important;
+  }
+
+  table thead {
+    display: table-header-group;
+  }
+
+  table tbody,
+  table tfoot {
+    display: table-row-group;
+  }
+
+  table tr:nth-of-type(even) td:before {
+    content: '';
+  }
+}
+
+#rwd-table {
+  @extend %responive-tables;
+  @include responive-tables('Heading Col 1', 'Heading Col 2', 'Heading Col 3');
+}
+
+#planList {
+  @extend %responive-tables-large;
+  @include responive-tables-large('Heading Col 1', 'Heading Col 2', 'Heading Col 3', 'Heading Col 4');
+}
+		
+	</style>
+</head>
+<body>
+<header th:replace="@{mainPage/menu.html} :: header"></header>
+   <table class="My"></table>
+   <script type="module" src="js/myPage/main.js"></script>
+</body>
+
+</html>

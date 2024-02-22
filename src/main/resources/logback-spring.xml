@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+	<conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %clr(%5level) %cyan(%logger) - %msg%n"/>
+    
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %5level %logger - %msg%n"/>
+    
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    	<filter class="ch.qos.logback.classic.filter.LevelFilter">
+    		<level>DEBUG</level>
+    		<onMatch>ACCEPT</onMatch>
+        	<onMismatch>DENY</onMismatch>
+    	</filter>
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+	
+	<appender name="FILE-SYSTEM" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        	<fileNamePattern>./log/weather-planner-system-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        	<maxFileSize>50MB</maxFileSize>
+        	<maxHistory>30</maxHistory>
+        	<totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+	</appender>
+	
+	<appender name="FILE-SQL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        	<fileNamePattern>./log/weather-planner-dev-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        	<maxFileSize>50MB</maxFileSize>
+        	<maxHistory>30</maxHistory>
+        	<totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+	</appender>
+	
+    <appender name="FILE-WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+    		<level>WARN</level>
+    		<onMatch>ACCEPT</onMatch>
+        	<onMismatch>DENY</onMismatch>
+    	</filter>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        	<fileNamePattern>./log/weather-planner-canRecover-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        	<maxFileSize>50MB</maxFileSize>
+        	<maxHistory>30</maxHistory>
+        	<totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    
+    <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<filter class="ch.qos.logback.classic.filter.LevelFilter">
+    		<level>ERROR</level>
+    		<onMatch>ACCEPT</onMatch>
+        	<onMismatch>DENY</onMismatch>
+    	</filter>
+    	<encoder>
+    		<pattern>${FILE_LOG_PATTERN}</pattern>
+    	</encoder>
+    	<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+	        	<fileNamePattern>./log/weather-planner-cantRecover-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+	        	<maxFileSize>50MB</maxFileSize>
+	        	<maxHistory>30</maxHistory>
+	        	<totalSizeCap>3GB</totalSizeCap>
+        	</rollingPolicy>
+    </appender>
+	
+	<logger name="com.olaenmanijo.weatherbasedtravelplanner.plan_after" level="WARN" additivity="false">
+		<appender-ref ref="FILE-WARN"/>
+	</logger>
+	
+	<logger name="com.olaenmanijo.weatherbasedtravelplanner.exception" level="ERROR" additivity="false">
+		<appender-ref ref="FILE-ERROR"/>
+	</logger>
+	  
+	<logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+		<appender-ref ref="FILE-SQL"/>
+    </logger>
+
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" additivity="false">
+         <appender-ref ref="FILE-SQL"/>
+     </logger>
+    
+    <logger name="com.olaenmanijo.weatherbasedtravelplanner.plan_after" level="DEBUG" additivity="false">
+    	<appender-ref ref="CONSOLE" />
+    </logger>
+    
+    <!-- 위의 logger에 해당하지 않으면 root 로거가 실행된다.  -->
+    <root level="DEBUG">
+    	<appender-ref ref="FILE-SYSTEM" />
+    </root>
+</configuration>
