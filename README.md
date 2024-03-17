@@ -1,4 +1,71 @@
 <img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/c434f06f-3ef7-427b-8c3a-0490abc99c52" width="660" height="360"/>
+
+# ▶️ 프로젝트 개요
+|❓ 갑자기 폭우로 숙소가 취소됐네.. 당장 갈만한 여행지는 없을까?|
+|:-|
+| **❓ 여행을 계획할 때 날씨를 같이 봤으면 좋겠다..** |
+| **💡 날씨를 제공하면서 여행계획을 동시에 수립하고, 날씨에 따라 여행지를 추천하는 사이트를 만들어보자!** |
+
+<br>
+
+# ▶️ 프로젝트 소개
+## 👩🏻‍💻 역할 분담
+| 이름 | 역할 |
+|:-|:-|
+|박성민|메인 페이지, 추천 페이지, 날씨 연동|
+|박찬호|자랑하기 페이지, 회원가입/로그인 페이지|
+|허송이|여행계획 페이지, DB 설계, 장소 연동|
+
+<br>
+
+## ⛲ 프로젝트 플로우
+<img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/35d7b463-e360-41ba-80b1-20d1b86fdcb6"/>
+<br><br>
+
+## 📐 프로젝트 아키텍처
+
+<img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/9e176895-71af-485e-bde2-41a670d6d1c7" width="540" height="280"/>
+<br><br>
+
+## 🛠️ 기술 스택
+| 분야 | 기술 |
+|:-|:-|
+| BackEnd | <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/java 8-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/myBatis-343434?style=for-the-badge&logo=myBatis&logoColor=white"/> <img src="https://img.shields.io/badge/oracle 11-F80000?style=for-the-badge&logo=oracle&logoColor=white">|
+| FrontEnd | <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> |
+| Collaboration | <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> |
+| Tool | <img src="https://img.shields.io/badge/eclipse-2C2255?style=for-the-badge&logo=eclipse ide&logoColor=white"> <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"> <img src="https://img.shields.io/badge/visual studio code-007ACC?style=for-the-badge&logo=visual studio code&logoColor=white">|
+| Open API | <img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/085ccbf8-e4d0-4986-ac2e-d05ac228fb5d" width="80" height="20"/> <img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/67362d78-d095-4b17-9048-1029a7cdd03b" width="80" height="40"/> <img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/fef2a091-5f24-4d3c-b600-fc2f39105301" width="60" height="40"/>|
+
+<br>
+
+## 🌳 브랜치 관리 전략
+| Git Flow를 사용하여 브랜치를 관리합니다. |
+|:-|
+
+<br>
+
+## 🎨 ERD
+|ERD Cloud: https://www.erdcloud.com/d/KuZuaTzwjXJmmcbuZ|
+|:-|
+![image](https://github.com/song21677/multicampus-backend-15/assets/55786368/a5a89c6c-13f3-4be5-9472-921a03e53c5f)
+
+<br>
+
+## 🖥️ 기능 별 화면 및 소개
+### 1. 로그인/회원가입 페이지
+<img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/71528ab1-2d22-4340-918d-e850803f60b4"/>
+
+| 🔑 로그인 후에 날씨 플래너를 이용할 수 있습니다. |
+|:-|
+
+|🔐 계정 |
+|:-|
+| 회원가입 : 회원가입 버튼을 통해 회원가입을 할 수 있습니다. 이때 비밀번호는 암호화됩니다. | 
+| 로그인 : 아이디와 비밀번호의 입력을 통해 로그인이 가능합니다. |
+| 로그아웃 : 로그인이 성공적일 경우 로그아웃 버튼으로 전환됩니다. |
+
+<br>
+
 | 📃 메인 페이지를 통해 날씨 정보를 제공합니다. |
 |:-|
 
