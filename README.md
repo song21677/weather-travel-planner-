@@ -1,4 +1,4 @@
-<img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/c434f06f-3ef7-427b-8c3a-0490abc99c52" width="660" height="360"/>
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/55786368/313374557-c434f06f-3ef7-427b-8c3a-0490abc99c52.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240320%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240320T205357Z&X-Amz-Expires=300&X-Amz-Signature=144e6a3e50bcb1759302e8e7f36f76ff02b3017099fc576a76f51cf8a9f5d9cd&X-Amz-SignedHeaders=host&actor_id=55786368&key_id=0&repo_id=659006456" width="660" height="360"/>
 
 # ▶️ 프로젝트 개요
 |❓ 갑자기 폭우로 숙소가 취소됐네.. 당장 갈만한 여행지는 없을까?|
