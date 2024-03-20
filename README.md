@@ -67,7 +67,7 @@
 <br>
 
 ### 2. 메인 페이지
-<img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/51d4010e-2678-4adc-84be-7979552a6b72" width="450" height="360"/>
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/55786368/313379636-51d4010e-2678-4adc-84be-7979552a6b72.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240320%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240320T210347Z&X-Amz-Expires=300&X-Amz-Signature=8588e39145cff84cee7c3cbe43710628aa13379fff809ebc6622eed763236ff4&X-Amz-SignedHeaders=host&actor_id=55786368&key_id=0&repo_id=659006456" width="450" height="360"/>
 
 |📃 메인 페이지를 통해 날씨 정보를 제공합니다.|
 |:-|
