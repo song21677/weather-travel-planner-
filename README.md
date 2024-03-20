@@ -66,6 +66,9 @@
 
 <br>
 
+### 2. 메인 페이지
+<img src="https://github.com/song21677/multicampus-backend-15/assets/55786368/51d4010e-2678-4adc-84be-7979552a6b72" width="450" height="360"/>
+
 |📃 메인 페이지를 통해 날씨 정보를 제공합니다.|
 |:-|
 
