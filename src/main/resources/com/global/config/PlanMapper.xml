@@ -1,0 +1,97 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.olaenmanijo.weatherbasedtravelplanner.plan_after.PlanMapper">
+	<insert id="insertPlan" parameterType="com.olaenmanijo.weatherbasedtravelplanner.plan_after.Plan2" useGeneratedKeys="true" keyColumn="travel_plan_no" keyProperty="id">
+		INSERT INTO travel_plan_tb (
+			travel_plan_no, 
+			member_no, 
+			travel_plan_title, 
+			start_ymd, 
+			end_ymd
+		)
+		VALUES (
+			travel_plan_sq.nextval, 
+			#{memberId}, 
+			CASE 
+				WHEN #{title} IS NULL OR #{title} = '' THEN '제목 없음'
+				ELSE #{title}
+			END,
+			#{startDate}, 
+			#{endDate}
+		)
+	</insert>
+	
+	<insert id="insertDetailPlan" parameterType="com.olaenmanijo.weatherbasedtravelplanner.plan_after.DetailPlan" useGeneratedKeys="true" keyColumn="detail_plan_no" keyProperty="id">
+		INSERT INTO detail_plan_tb (
+			detail_plan_no, 
+	       	travel_plan_no,
+	       	place_no,
+	       	detail_plan_ymd, 
+	       	detail_plan_hour,
+	       	detail_plan_hour_end
+    	)
+   	 	VALUES (
+   	 		detail_plan_sq.nextval,
+            #{planId},
+            #{placeId}, 
+            #{date}, 
+            #{startHour},
+            #{endHour}
+    	)
+	</insert>
+	
+	<resultMap id="planResultMap" type="com.olaenmanijo.weatherbasedtravelplanner.plan_after.PlanResponse">
+		<id property="id" column="travel_plan_no"/>
+		<result property="title" column="travel_plan_title"/>
+		<result property="startDate" column="start_ymd"/>
+		<result property="endDate" column="end_ymd"/>
+	</resultMap>
+	
+	<resultMap id="detailPlanResultMap" type="com.olaenmanijo.weatherbasedtravelplanner.plan_after.DetailPlanResponse">
+		<id property="id" column="detail_plan_no"/>
+		<result property="placeId" column="place_no"/>
+		<result property="date" column="detail_plan_ymd"/>
+		<result property="startHour" column="detail_plan_hour"/>
+		<result property="endHour" column="detail_plan_hour_end"/>
+	</resultMap>
+	
+	<select id="selectPlanByMemberNo" parameterType="long" resultType="java.util.List" resultMap="planResultMap">
+		SELECT
+			travel_plan_no,
+			member_no,
+			travel_plan_title,
+			start_ymd,
+			end_ymd
+		FROM
+			travel_plan_tb
+		WHERE
+			member_no = ${memberNo}
+	</select>
+	
+	<select id="selectPlanByTravelPlanNo" parameterType="long" resultMap="planResultMap">
+		SELECT
+			travel_plan_no,
+			travel_plan_title,
+			start_ymd,
+			end_ymd
+		FROM
+			travel_plan_tb
+		WHERE
+			travel_plan_no = ${travelPlanNo}	
+	</select>
+	
+	<select id="selectDetailPlanByTravelPlanNo" parameterType="long" resultMap="detailPlanResultMap" resultType="java.util.List">
+		SELECT
+			detail_plan_no,
+			place_no,
+			detail_plan_ymd,
+			detail_plan_hour,
+			detail_plan_hour_end
+		FROM
+			detail_plan_tb
+		WHERE
+			travel_plan_no = ${travelPlanNO}
+	</select>
+</mapper>
